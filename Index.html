@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>WSW Event Check-In</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+<body>
+
+  <main class="app">
+
+    <section class="card">
+
+      <div class="header">
+
+        <div class="logo">
+          WSW
+        </div>
+
+        <div>
+
+          <h1>
+            WSW Event Check-In
+          </h1>
+
+          <p>
+            Scan the guest's QR ticket
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- SCAN BUTTON -->
+
+      <div class="scan-area">
+
+        <button
+          id="startScanner"
+          class="scan-button"
+        >
+
+          📷 SCAN QR CODE
+
+        </button>
+
+
+        <p class="scan-note">
+
+          Tap the button and allow camera access.
+
+        </p>
+
+      </div>
+
+
+      <!-- CAMERA -->
+
+      <div
+        id="reader"
+        class="scanner-box"
+      >
+      </div>
+
+
+      <!-- LOADING -->
+
+      <div
+        id="loading"
+        class="loading hidden"
+      >
+
+        Checking ticket...
+
+      </div>
+
+
+      <!-- RESULT -->
+
+      <section
+        id="result"
+        class="result hidden"
+      >
+
+        <div
+          id="statusBox"
+          class="status-box"
+        >
+        </div>
+
+
+        <div class="ticket-details">
+
+          <div class="detail">
+
+            <span>
+              Event
+            </span>
+
+            <strong
+              id="eventName"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Ticket Number
+            </span>
+
+            <strong
+              id="ticketId"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Guest Name
+            </span>
+
+            <strong
+              id="guestName"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Ticket Type
+            </span>
+
+            <strong
+              id="ticketType"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Check-In Time
+            </span>
+
+            <strong
+              id="checkInTime"
+            >
+              Not checked in
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <button
+          id="checkInButton"
+          class="check-in-button"
+        >
+
+          ✓ CHECK IN GUEST
+
+        </button>
+
+      </section>
+
+
+      <!-- ERROR MESSAGE -->
+
+      <div
+        id="message"
+        class="message hidden"
+      >
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- QR SCANNER -->
+
+  <script
+    src="https://unpkg.com/html5-qrcode"
+  ></script>
+
+
+  <!-- FIREBASE APP -->
+
+  <script
+    type="module"
+    src="app.js"
+  ></script>
+
+</body>
+
+</html>
