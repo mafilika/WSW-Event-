@@ -343,4 +343,55 @@ button {
     text-align: left;
   }
 
+  .scan-area {
+  margin-top: 25px;
+}
+
+.scan-button {
+  width: 100%;
+  padding: 20px;
+  background: #00a651;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.scan-note {
+  text-align: center;
+  color: #667085;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.scanner-box {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+#reader video {
+  width: 100% !important;
+  border-radius: 12px;
+}
+
+#reader__dashboard {
+  padding: 10px;
+}
+
+#reader__dashboard_section_csr button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #07152d;
+  color: white;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none !important;
+  }
 }
