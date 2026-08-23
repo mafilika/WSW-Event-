@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>WSW Event Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="dashboard.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <main class="dashboard">
+
+
+    <!-- HEADER -->
+
+    <header class="dashboard-header">
+
+      <div>
+
+        <div class="brand">
+          WSW
+        </div>
+
+        <h1>
+          Event Attendance Dashboard
+        </h1>
+
+        <p>
+          Live WSW Event Check-In Monitoring
+        </p>
+
+      </div>
+
+
+      <a
+        href="index.html"
+        class="scanner-link"
+      >
+
+        📷 Open Scanner
+
+      </a>
+
+    </header>
+
+
+
+    <!-- EVENT STATUS -->
+
+    <section class="event-status">
+
+      <div>
+
+        <span>
+          EVENT
+        </span>
+
+        <strong>
+          WSW EVENT
+        </strong>
+
+      </div>
+
+
+      <div class="live">
+
+        <span class="live-dot"></span>
+
+        LIVE
+
+      </div>
+
+    </section>
+
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats-grid">
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          🎟️
+        </div>
+
+        <div>
+
+          <span>
+            TOTAL TICKETS
+          </span>
+
+          <strong id="totalTickets">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="stat-card attended">
+
+        <div class="stat-icon">
+          ✅
+        </div>
+
+        <div>
+
+          <span>
+            ATTENDED
+          </span>
+
+          <strong id="attended">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="stat-card remaining">
+
+        <div class="stat-icon">
+          ⏳
+        </div>
+
+        <div>
+
+          <span>
+            NOT YET ATTENDED
+          </span>
+
+          <strong id="remaining">
+            0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="stat-card percentage">
+
+        <div class="stat-icon">
+          📊
+        </div>
+
+        <div>
+
+          <span>
+            ATTENDANCE RATE
+          </span>
+
+          <strong id="percentage">
+            0%
+          </strong>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- ATTENDANCE PROGRESS -->
+
+    <section class="panel">
+
+      <div class="panel-heading">
+
+        <div>
+
+          <h2>
+            Attendance Progress
+          </h2>
+
+          <p>
+            Live percentage of ticket holders who have arrived.
+          </p>
+
+        </div>
+
+        <strong id="progressText">
+          0%
+        </strong>
+
+      </div>
+
+
+      <div class="progress-container">
+
+        <div
+          id="progressBar"
+          class="progress-bar"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SEARCH -->
+
+    <section class="panel">
+
+      <div class="panel-heading">
+
+        <div>
+
+          <h2>
+            Attendee Records
+          </h2>
+
+          <p>
+            Search tickets and check-in status.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search by guest name or ticket number..."
+      >
+
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Ticket
+              </th>
+
+              <th>
+                Guest
+              </th>
+
+              <th>
+                Ticket Type
+              </th>
+
+              <th>
+                Status
+              </th>
+
+              <th>
+                Check-In Time
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody id="attendeeTable">
+
+            <tr>
+
+              <td colspan="5">
+                Loading attendees...
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- RECENT CHECK-INS -->
+
+    <section class="panel">
+
+      <div class="panel-heading">
+
+        <div>
+
+          <h2>
+            Recent Check-Ins
+          </h2>
+
+          <p>
+            Most recent guests to enter the event.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="recentCheckIns"
+        class="recent-list"
+      >
+
+        Loading...
+
+      </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      WSW Event Management System
+
+      <span>
+        • Live Firebase Database
+      </span>
+
+    </footer>
+
+
+  </main>
+
+
+  <script
+    type="module"
+    src="dashboard.js"
+  ></script>
+
+
+</body>
+
+  </html>
