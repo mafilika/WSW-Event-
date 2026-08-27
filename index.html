@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>WSW Event | Staff Check-In</title>
+
+  <link
+    rel="stylesheet"
+    href="staff.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="logo">
+        WSW
+      </div>
+
+      <div class="brand-text">
+
+        <h1>
+          WSW EVENT
+        </h1>
+
+        <p>
+          Staff Check-In
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="staff-area">
+
+      <span id="staffEmail">
+        Loading...
+      </span>
+
+      <button
+        type="button"
+        id="logoutButton"
+        class="logout-button"
+      >
+        LOG OUT
+      </button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================
+       MAIN
+  ====================================== -->
+
+  <main class="page">
+
+    <section class="card">
+
+
+      <!-- TITLE -->
+
+      <div class="page-heading">
+
+        <h2>
+          Guest Check-In
+        </h2>
+
+        <p>
+          Scan a QR ticket or manually enter
+          the ticket number.
+        </p>
+
+      </div>
+
+
+
+      <!-- =====================================
+           METHOD SELECTOR
+      ====================================== -->
+
+      <div class="method-selector">
+
+        <button
+          type="button"
+          id="scanTab"
+          class="method-tab active"
+        >
+
+          <span class="method-icon">
+            📷
+          </span>
+
+          <span>
+            SCAN QR
+          </span>
+
+        </button>
+
+
+        <button
+          type="button"
+          id="manualTab"
+          class="method-tab"
+        >
+
+          <span class="method-icon">
+            🔢
+          </span>
+
+          <span>
+            ENTER NUMBER
+          </span>
+
+        </button>
+
+      </div>
+
+
+
+      <!-- =====================================
+           SCAN SECTION
+      ====================================== -->
+
+      <section
+        id="scannerSection"
+        class="method-section"
+      >
+
+        <div class="section-heading">
+
+          <h3>
+            Scan QR Ticket
+          </h3>
+
+          <p>
+            Position the guest's QR code inside
+            the camera box.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="startScannerButton"
+          class="primary-button"
+        >
+
+          📷 START CAMERA
+
+        </button>
+
+
+        <div
+          id="reader"
+          class="reader"
+        >
+        </div>
+
+
+        <button
+          type="button"
+          id="stopScannerButton"
+          class="secondary-button hidden"
+        >
+
+          ■ STOP CAMERA
+
+        </button>
+
+      </section>
+
+
+
+      <!-- =====================================
+           MANUAL SECTION
+      ====================================== -->
+
+      <section
+        id="manualSection"
+        class="method-section hidden"
+      >
+
+        <div class="section-heading">
+
+          <h3>
+            Enter Ticket Number
+          </h3>
+
+          <p>
+            Enter the number printed on the ticket.
+          </p>
+
+        </div>
+
+
+        <form
+          id="ticketForm"
+          autocomplete="off"
+        >
+
+          <label for="ticketNumber">
+            Ticket Number
+          </label>
+
+
+          <input
+            id="ticketNumber"
+            type="text"
+            placeholder="WSW26-001"
+            autocomplete="off"
+            autocapitalize="characters"
+            spellcheck="false"
+            required
+          >
+
+
+          <button
+            type="submit"
+            class="primary-button"
+          >
+
+            VERIFY TICKET
+
+          </button>
+
+        </form>
+
+      </section>
+
+
+
+      <!-- =====================================
+           LOADING
+      ====================================== -->
+
+      <div
+        id="loading"
+        class="loading hidden"
+      >
+
+        <div class="spinner"></div>
+
+        <span>
+          Checking ticket...
+        </span>
+
+      </div>
+
+
+
+      <!-- =====================================
+           ERROR / MESSAGE
+      ====================================== -->
+
+      <div
+        id="message"
+        class="message hidden"
+      >
+      </div>
+
+
+
+      <!-- =====================================
+           RESULT
+      ====================================== -->
+
+      <section
+        id="ticketResult"
+        class="ticket-result hidden"
+      >
+
+
+        <div
+          id="statusBox"
+          class="status-box"
+        >
+        </div>
+
+
+
+        <div class="ticket-details">
+
+
+          <div class="detail">
+
+            <span>
+              Event
+            </span>
+
+            <strong id="eventName">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Ticket Number
+            </span>
+
+            <strong id="ticketId">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Guest Name
+            </span>
+
+            <strong id="guestName">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Ticket Type
+            </span>
+
+            <strong id="ticketType">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="detail">
+
+            <span>
+              Check-In Time
+            </span>
+
+            <strong id="checkInTime">
+              Not checked in
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+
+        <button
+          type="button"
+          id="checkInButton"
+          class="checkin-button"
+        >
+
+          ✓ CHECK IN GUEST
+
+        </button>
+
+
+        <button
+          type="button"
+          id="nextGuestButton"
+          class="next-button"
+        >
+
+          NEXT GUEST
+
+        </button>
+
+
+      </section>
+
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================
+       QR LIBRARY
+  ====================================== -->
+
+  <script
+    src="https://unpkg.com/html5-qrcode"
+  ></script>
+
+
+  <!-- =====================================
+       STAFF APPLICATION
+  ====================================== -->
+
+  
+
+
+</body>
+
+  </html>
